@@ -7,4 +7,31 @@
         "sameAs": [
           "https://github.com/terenzzzz"
         ]
-      }</script><script defer="defer" src="/js/chunk-vendors.49900e7b.js"></script><script defer="defer" src="/js/app.2593fe89.js"></script><link href="/css/chunk-vendors.bfd66ab8.css" rel="stylesheet"><link href="/css/app.0bea98cb.css" rel="stylesheet"></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/MorphSVGPlugin.min.js"></script><noscript><strong>We're sorry but terenzzzz.cn doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>
+      }</script><script defer="defer" src="/js/chunk-vendors.49900e7b.js"></script><script defer="defer" src="/js/app.f44e29a4.js"></script><link href="/css/chunk-vendors.bfd66ab8.css" rel="stylesheet"><link href="/css/app.abfc3078.css" rel="stylesheet"></head><body><script>// 等待 Vue 应用挂载完成后动态加载 ClustrMaps 脚本
+      window.addEventListener('load', function () {
+          // 创建一个不可见的容器（这里实际上不会用于渲染）
+          const container = document.createElement('div');
+          container.id = 'clustrmaps-container';
+          container.style.display = 'none';  // 不显示
+          document.body.appendChild(container); // 将容器添加到 body 中
+
+          // 动态创建 ClustrMaps 脚本
+          const script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.id = 'clustrmaps';
+          script.src = '//cdn.clustrmaps.com/map_v2.js?cl=080808&w=a&t=tt&d=qPKY5xtavrblNcCDoi36pH6CG3lbTMz_7YzLimXcyT8&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=808080';
+
+          // 将脚本添加到页面
+          script.onload = function() {
+              console.log("ClustrMaps 脚本加载完成");
+              // 取消地图渲染（屏蔽地图渲染）
+              // 在 ClustrMaps 脚本加载完成后，我们可以阻止它在页面上渲染地图
+              // 例如通过清空 DOM 容器或者让它停止渲染
+              const container = document.getElementById('clustrmaps-container');
+              if (container) {
+                  container.innerHTML = ''; // 确保不会有任何地图渲染
+              }
+          };
+
+          document.body.appendChild(script);  // 将 ClustrMaps 脚本添加到页面
+      });</script><noscript><strong>We're sorry but terenzzzz.cn doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>
