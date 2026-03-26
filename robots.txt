@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Host: terenzzzz.cn
+Sitemap: https://terenzzzz.cn/sitemap.xml
